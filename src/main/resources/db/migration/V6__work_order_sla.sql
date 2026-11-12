@@ -1,0 +1,2 @@
+ALTER TABLE work_order
+ADD COLUMN due_date TIMESTAMP;

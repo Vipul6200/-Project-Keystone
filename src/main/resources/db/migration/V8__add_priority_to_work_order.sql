@@ -1,0 +1,2 @@
+ALTER TABLE work_order
+ADD COLUMN priority VARCHAR(50);

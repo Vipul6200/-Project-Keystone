@@ -1,0 +1,23 @@
+package com.zidio.keystone.dto;
+import jakarta.validation.constraints.NotNull;
+
+public class WorkOrderTimeDTO {
+    @NotNull(message = "Minutes are required")
+    private Integer minutes;
+
+    private String note;
+    public WorkOrderTimeDTO() {
+    }
+    public Integer getMinutes() {
+        return minutes;
+    }
+    public void setMinutes(Integer minutes) {
+        this.minutes = minutes;
+    }
+    public String getNote() {
+        return note;
+    }
+    public void setNote(String note) {
+        this.note = note;
+    }
+}
