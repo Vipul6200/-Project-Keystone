@@ -7,7 +7,7 @@ function Site({token}: {token: string}) {
     const [sites, setSites] = useState<any[]>([])
     useEffect(() => {
       if (!token) return
-        fetch('http://localhost:8080/api/sites', {
+        fetch('https://project-keystone-2.onrender.com/api/sites', {
             headers: {
             Authorization: `Bearer ${token}`,
            },
@@ -24,7 +24,7 @@ function Site({token}: {token: string}) {
     }, [])
     const handleDelete = async (id: number) => {
     try {
-        const response = await fetch(`http://localhost:8080/api/sites/${id}`, {
+        const response = await fetch(`https://project-keystone-2.onrender.com/api/sites/${id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -45,7 +45,7 @@ function Site({token}: {token: string}) {
         e.preventDefault()
         
         try {
-            const response = await fetch('http://localhost:8080/api/sites', {
+            const response = await fetch('https://project-keystone-2.onrender.com/api/sites', {
             method:'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -4,7 +4,7 @@ function Dashboard() {
   const [summary, setSummary] = useState<any>(null)
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/reports/summary')
+    fetch('https://project-keystone-2.onrender.com/api/reports/summary')
       .then((response) => response.json())
       .then((data) => setSummary(data))
       .catch((error) => {

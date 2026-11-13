@@ -12,7 +12,7 @@ function CustomerPortal() {
   const loadWorkOrders = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/work-orders/customer/${customerId}`
+        `https://project-keystone-2.onrender.com/api/work-orders/customer/${customerId}`
       )
 
       if (!response.ok) {
@@ -31,7 +31,7 @@ function CustomerPortal() {
   const createRequest = async () => {
   try {
     const response = await fetch(
-      `http://localhost:8080/api/work-orders/customer/${customerId}/request`,
+      `https://project-keystone-2.onrender.com/api/work-orders/customer/${customerId}/request`,
       {
         method: 'POST',
         headers: {

@@ -7,7 +7,7 @@ function Customer({token}: {token: string}) {
     const [customers, setCustomers] = useState<any[]>([])
     useEffect(() => {
         if (!token) return
-        fetch('http://localhost:8080/api/customers', {
+        fetch('https://project-keystone-2.onrender.com/api/customers', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -23,7 +23,7 @@ function Customer({token}: {token: string}) {
     }, [])
     const handleDelete = async (id: number) =>{
         try {
-            const response = await fetch(`http://localhost:8080/api/customers/${id}`, {
+            const response = await fetch(`https://project-keystone-2.onrender.com/api/customers/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -45,7 +45,7 @@ function Customer({token}: {token: string}) {
     e.preventDefault()
 
     try {
-        const response = await fetch('http://localhost:8080/api/customers', {
+        const response = await fetch('https://project-keystone-2.onrender.com/api/customers', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

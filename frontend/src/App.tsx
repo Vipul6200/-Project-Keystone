@@ -21,7 +21,7 @@ function App(){
   const [totalPages, setTotalPages] = useState(0)
   const handleLogin = async () => {
   try {
-    const response = await fetch('http://localhost:8080/api/auth/login', {
+    const response = await fetch('https://project-keystone-2.onrender.com/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ function App(){
   const handleSearch = async () => {
   try {
     const response = await fetch(
-      `http://localhost:8080/api/work-orders/search?title=${searchTitle}`
+      `https://project-keystone-2.onrender.com/api/work-orders/search?title=${searchTitle}`
     )
 
     const data = await response.json()
@@ -60,7 +60,7 @@ function App(){
   const handleFilter = async () => {
   try {
     const response = await fetch(
-      `http://localhost:8080/api/work-orders/filter?status=${filterStatus}`
+      `https://project-keystone-2.onrender.com/api/work-orders/filter?status=${filterStatus}`
     )
 
     const data = await response.json()
@@ -78,7 +78,7 @@ function App(){
   e.preventDefault()
 
   try {
-    const response = await fetch('http://localhost:8080/api/work-orders', {
+    const response = await fetch('https://project-keystone-2.onrender.com/api/work-orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ function App(){
 
   useEffect(() => {
     if (!token) return
-    fetch(`http://localhost:8080/api/work-orders/paged?page=${page}&size=5`, {
+    fetch(`https://project-keystone-2.onrender.com/api/work-orders/paged?page=${page}&size=5`, {
       headers:{
         'Authorization': `Bearer ${token}`
       },

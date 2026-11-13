@@ -10,7 +10,7 @@ function Technician({token}: {token: string}) {
   const loadAttachments = async (workOrderId: number) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/work-orders/${workOrderId}/attachments`,
+        `https://project-keystone-2.onrender.com/api/work-orders/${workOrderId}/attachments`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -30,7 +30,7 @@ function Technician({token}: {token: string}) {
   const addAttachment = async (workOrderId: number) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/work-orders/${workOrderId}/attachments`,
+        `https://project-keystone-2.onrender.com/api/work-orders/${workOrderId}/attachments`,
         {
           method: 'POST',
           headers: {
@@ -82,7 +82,7 @@ function Technician({token}: {token: string}) {
         onClick={async () => {
           try {
             const response = await fetch(
-              `http://localhost:8080/api/work-orders/technician/${assignedTo}`,
+              `https://project-keystone-2.onrender.com/api/work-orders/technician/${assignedTo}`,
               {
                 headers: { Authorization: `Bearer ${token}` },
               }
@@ -115,7 +115,7 @@ function Technician({token}: {token: string}) {
             onClick={async () => {
               try {
                 const response = await fetch(
-                  `http://localhost:8080/api/work-orders/${workOrder.id}/status?status=IN_PROGRESS`,
+                  `https://project-keystone-2.onrender.com/api/work-orders/${workOrder.id}/status?status=IN_PROGRESS`,
                   {
                     method: 'PUT',
                     headers: { Authorization: `Bearer ${token}` },
@@ -141,7 +141,7 @@ function Technician({token}: {token: string}) {
             onClick={async () => {
               try {
                 const response = await fetch(
-                  `http://localhost:8080/api/work-orders/${workOrder.id}/status?status=ON_HOLD`,
+                  `https://project-keystone-2.onrender.com/api/work-orders/${workOrder.id}/status?status=ON_HOLD`,
                   {
                     method: 'PUT',
                     headers: { Authorization: `Bearer ${token}` },
@@ -167,7 +167,7 @@ function Technician({token}: {token: string}) {
             onClick={async () => {
               try {
                 const response = await fetch(
-                  `http://localhost:8080/api/work-orders/${workOrder.id}/status?status=IN_PROGRESS`,
+                  `https://project-keystone-2.onrender.com/api/work-orders/${workOrder.id}/status?status=IN_PROGRESS`,
                   {
                     method: 'PUT',
                     headers: { Authorization: `Bearer ${token}` },
@@ -193,7 +193,7 @@ function Technician({token}: {token: string}) {
             onClick={async () => {
               try {
                 const response = await fetch(
-                  `http://localhost:8080/api/work-orders/${workOrder.id}/status?status=COMPLETED`,
+                  `https://project-keystone-2.onrender.com/api/work-orders/${workOrder.id}/status?status=COMPLETED`,
                   {
                     method: 'PUT',
                     headers: { Authorization: `Bearer ${token}` },
