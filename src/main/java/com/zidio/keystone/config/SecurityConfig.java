@@ -21,6 +21,7 @@ public class SecurityConfig {
         throws Exception {
 
     http
+        .cors(org.springframework.security.config.Customizer.withDefaults())
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
 
