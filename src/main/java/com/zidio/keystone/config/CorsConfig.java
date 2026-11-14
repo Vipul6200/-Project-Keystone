@@ -15,7 +15,7 @@ public class CorsConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowedOrigins(
-                List.of("http://localhost:5173", "http://keystone-frontend-gsj2.onrender.com")
+                List.of("http://localhost:5173", "https://keystone-frontend-gsj2.onrender.com")
 
         );
 
