@@ -1,16 +1,27 @@
 import { useEffect, useState } from 'react'
 
-function Dashboard() {
+function Dashboard({ token }: { token: string }) {
   const [summary, setSummary] = useState<any>(null)
 
   useEffect(() => {
-    fetch('https://project-keystone-2.onrender.com/api/reports/summary')
-      .then((response) => response.json())
+    if (!token) return
+
+    fetch('https://project-keystone-2.onrender.com/api/reports/summary', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Request failed: ${response.status}`)
+        }
+        return response.json()
+      })
       .then((data) => setSummary(data))
       .catch((error) => {
-        console.error('Error:', error)
+        console.error('Dashboard error:', error)
       })
-  }, [])
+  }, [token])
 
   if (!summary) {
     return <p>Loading Dashboard...</p>
@@ -21,7 +32,6 @@ function Dashboard() {
       <h2>Dashboard</h2>
 
       <h3>Work Order Status</h3>
-
       <p>Total Work Orders: {summary.totalWorkOrders}</p>
       <p>New: {summary.newCount}</p>
       <p>Assigned: {summary.assignedCount}</p>
@@ -29,18 +39,18 @@ function Dashboard() {
       <p>Completed: {summary.completedCount}</p>
 
       <h3>SLA</h3>
-
       <p>Overdue: {summary.overdueCount}</p>
       <p>On Time: {summary.onTimeCount}</p>
       <p>At Risk: {summary.atRiskCount}</p>
       <p>Breached: {summary.breachedCount}</p>
+
       <h3>Technician Breakdown</h3>
-       {Object.entries(summary.technicianBreakdown || {}).map(
+      {Object.entries(summary.technicianBreakdown || {}).map(
         ([technicianId, count]) => (
-      <p key={technicianId}>
-      Technician {technicianId}: {String(count)} Work Orders
-      </p>
-       )
+          <p key={technicianId}>
+            Technician {technicianId}: {String(count)} Work Orders
+          </p>
+        )
       )}
     </div>
   )

@@ -187,7 +187,7 @@ function App(){
       <button onClick={() => setShowDashboard(!showDashboard)}>
         Dashboard
       </button>
-      {showDashboard && <Dashboard />}
+      {showDashboard && <Dashboard token={token} />}
       <button onClick={() => setShowCustomerPortal(!showCustomerPortal)}>
         Customer Portal
       </button>
