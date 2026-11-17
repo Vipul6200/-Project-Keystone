@@ -82,6 +82,7 @@ function App(){
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify({
         title,
@@ -133,7 +134,7 @@ function App(){
     .catch((error) => console.error('Error:', error))
     console.log(page)
     console.log(totalPages)
-  }, [])
+  }, [token, page,])
 
   const columns = [
     'NEW',
